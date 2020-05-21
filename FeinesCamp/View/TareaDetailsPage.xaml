@@ -11,12 +11,43 @@
 
     <ScrollView>
         <StackLayout>
-            <Grid>
+            <Grid RowSpacing="20" ColumnSpacing="5" Margin="10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="30" />
+                </Grid.ColumnDefinitions>
+
+                  <Picker Title="Client" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Clients}" />
+
+                  <Picker Title="Camp" Grid.Row="1" Grid.Column="1"  ItemsSource="{Binding Camps}" />
+
+                  <Picker Title="Feina" Grid.Row="2" Grid.Column="1"  ItemsSource="{Binding Feines}" />
+
+                  <Label Text="Acabada" Grid.Row="3" Grid.Column="1"/>
+                  <Switch  IsToggled="False" Grid.Row="3" Grid.Column="1"/>
+
+                  <Editor Placeholder="Material" Grid.Row="4" Grid.Column="1"/>
+
+                 <Editor Placeholder="Comentaris" Grid.Row="5"  Grid.Column="1"/>
+
+                  <Button Text="Guardar" Grid.Row="6" Grid.Column="1"/>
+                   <Button Text="Cancelar" Grid.Row="7" Grid.Column="1"/>
+
             </Grid>
         </StackLayout>
+
+      
     </ScrollView>
 </ContentPage>
