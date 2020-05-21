@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FeinesCamp.Data;
 using FeinesCamp.Model;
 using MvvmHelpers;
 using Xamarin.Forms;
@@ -47,11 +48,17 @@ namespace FeinesCamp.ViewModel
                 IsBusy = true;
                 User getUser = await DataService.GetUserAsync("5e93600fd89dee0bdd199f47");
                 //From mvvmhelpers:
-                User = getUser;
-                Feines.ReplaceRange(getUser.Tasks);
-                FeinesSearch.ReplaceRange(getUser.Tasks);
+                if (getUser != null)
+                {
+                    User = getUser;
+                    Feines.ReplaceRange(getUser.Tasks);
+                    FeinesSearch.ReplaceRange(getUser.Tasks);
 
-                Title = $"{Feines.Count} feines";
+                    Title = $"{Feines.Count} feines";
+
+                    await App.LocalDatabase.SaveUserAsync(getUser);
+                }
+                
             }
             catch (Exception ex)
             {

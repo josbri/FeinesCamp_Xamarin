@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FeinesCamp.Data;
 using FeinesCamp.Model;
 using FeinesCamp.Services;
 using Xamarin.Forms;
@@ -18,6 +20,8 @@ namespace FeinesCamp.Services
         // Return httpclient, unless it's null, then create a new httpclient.
         HttpClient Client => httpClient ?? (httpClient = new HttpClient());
 
+
+
         public async Task<User> GetUserAsync(string jwtId)
         {
             var connectionString = $"{Address}/Users/jwt/{jwtId}";
@@ -28,5 +32,6 @@ namespace FeinesCamp.Services
             return user;
             
         }
+
     }
 }

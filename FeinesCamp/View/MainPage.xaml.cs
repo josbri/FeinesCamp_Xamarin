@@ -25,14 +25,5 @@ namespace FeinesCamp.View
             ((ListView)sender).SelectedItem = null;
         }
 
-        void SearchBar_TextChanged(Object sender, TextChangedEventArgs e)
-        {
-
-           
-        }
-
-        void ListView_Refreshing(System.Object sender, System.EventArgs e)
-        {
-        }
     }
 }
