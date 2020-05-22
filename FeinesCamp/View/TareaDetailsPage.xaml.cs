@@ -19,5 +19,10 @@ namespace FeinesCamp.View
 
             ((TareaDetailsViewModel)BindingContext).Tarea = tarea;
         }
+
+        async void Cancelar_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

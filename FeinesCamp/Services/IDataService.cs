@@ -8,5 +8,7 @@ namespace FeinesCamp.Services
     public interface IDataService
     {
         Task<User> GetUserAsync(string jwtId);
+
+        Task SaveTareaAsync(TareaPostDTO tarea);
     }
 }

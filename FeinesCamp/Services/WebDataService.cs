@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using FeinesCamp.Data;
 using FeinesCamp.Model;
 using FeinesCamp.Services;
+using Newtonsoft.Json;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -33,5 +35,15 @@ namespace FeinesCamp.Services
             
         }
 
+        public async Task SaveTareaAsync (TareaPostDTO tarea)
+        {
+            var connectionString = $"{Address}/Tasks";
+
+            var tareaJson = JsonConvert.SerializeObject(tarea);
+
+            var data = new StringContent(tareaJson, Encoding.UTF8, "application/json");
+            await Client.PostAsync(connectionString, data);
+
+        }
     }
 }

@@ -11,7 +11,7 @@
 
     <ScrollView>
         <StackLayout>
-            <Grid RowSpacing="20" ColumnSpacing="5" Margin="10">
+            <Grid RowSpacing="10" ColumnSpacing="5" Margin="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
@@ -31,7 +31,6 @@
 
                 <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
-                           Grid.Row="4"
                             Grid.Column="1"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="CenterAndExpand"
@@ -44,20 +43,37 @@
                           SelectedItem="{Binding SelectedClient, Mode=TwoWay}"/>
 
                   <Picker Title="Camp" Grid.Row="1" Grid.Column="1"  ItemsSource="{Binding SelectedClient.Land}"
-                          ItemDisplayBinding="{Binding Name}"/>
+                          ItemDisplayBinding="{Binding Name}"
+                          SelectedItem="{Binding SelectedLand, Mode=TwoWay}"
+                          />
 
                   <Picker Title="Feina" Grid.Row="2" Grid.Column="1"  ItemsSource="{Binding TipoTareas}"
-                          ItemDisplayBinding="{Binding Name}"/>
+                          ItemDisplayBinding="{Binding Name}"
+                          SelectedItem="{Binding SelectedTipoTarea, Mode=TwoWay}"
+                      />
 
-                  <Label Text="Acabada" Grid.Row="3" Grid.Column="1"/>
-                  <Switch  IsToggled="False" Grid.Row="3" Grid.Column="1"/>
+                  <Label Text="Acabada" Grid.Row="3" Grid.Column="1" />
 
-                  <Editor Placeholder="Material" Grid.Row="4" Grid.Column="1"/>
+                  <Switch  IsToggled="False" Grid.Row="3" Grid.Column="1"
+                           BindingContext="{Binding IsFinished}"/>
 
-                 <Editor Placeholder="Comentaris" Grid.Row="5"  Grid.Column="1"/>
+                  <Editor Placeholder="Material" Grid.Row="4" Grid.Column="1"
+                          BindingContext="{Binding MaterialText}"/>
 
-                  <Button Text="Guardar" Grid.Row="6" Grid.Column="1"/>
-                   <Button Text="Cancelar" Grid.Row="7" Grid.Column="1"/>
+                 <Editor Placeholder="Comentaris" Grid.Row="5"  Grid.Column="1"
+                         BindingContext="{Binding CommentText}"
+                         />
+                
+                 <Entry Placeholder="Temps" Grid.Row="6"  Grid.Column="1"
+                         BindingContext="{Binding Temps, Mode=TwoWay}"
+                            Keyboard="Numeric"
+                        
+                         />
+
+                  <Button Text="Guardar" Grid.Row="7" Grid.Column="1"
+                          Command="{Binding SaveTareaCommand}"/>
+                  <Button Text="Cancelar" Grid.Row="8" Grid.Column="1"
+                          Clicked="Cancelar_Clicked"/>
 
             </Grid>
         </StackLayout>
