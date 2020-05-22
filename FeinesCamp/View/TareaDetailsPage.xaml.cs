@@ -22,6 +22,20 @@ namespace FeinesCamp.View
 
         async void Cancelar_Clicked(System.Object sender, System.EventArgs e)
         {
+           if (((TareaDetailsViewModel)BindingContext).SaveTareaCommand.CanExecute(null))
+            {
+                ((TareaDetailsViewModel)BindingContext).SaveTareaCommand.Execute(null);
+            }
+            await Navigation.PopAsync();
+        }
+
+        async void Guardar_Clicked(System.Object sender, System.EventArgs e)
+        {
+
+            if (((TareaDetailsViewModel)BindingContext).SaveTareaCommand.CanExecute(null))
+            {
+                ((TareaDetailsViewModel)BindingContext).SaveTareaCommand.Execute(null);
+            }
             await Navigation.PopAsync();
         }
     }

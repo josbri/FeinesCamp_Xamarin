@@ -232,6 +232,7 @@ namespace FeinesCamp.ViewModel
             {
                 Debug.WriteLine($"No se pudo guardar la tarea: {ex.Message}");
                 await App.Current.MainPage.DisplayAlert("Error!", ex.Message, "OK");
+                //await App.Current.MainPage.Navigation.PopAsync();
             }
             finally
             {

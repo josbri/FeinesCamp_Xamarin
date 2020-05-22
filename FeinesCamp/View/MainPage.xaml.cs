@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace FeinesCamp.View
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : MasterDetailPage
     {
         public MainPage()
         {

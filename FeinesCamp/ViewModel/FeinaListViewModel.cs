@@ -74,13 +74,14 @@ namespace FeinesCamp.ViewModel
 
         async void SearchTasks(string search)
         {
-            if (search.Length > 1 || Feines == null || IsBusy)
+            if ( Feines == null || IsBusy)
                 return;
 
             try
             {
                 var searchList = Feines.Where((f) => f.Name.ToLower().Contains(search.ToLower()) ||
                 f.ClientName.ToLower().Contains(search.ToLower()) || f.Land.Name.ToLower().Contains(search.ToLower()));
+
                 FeinesSearch.ReplaceRange(searchList);
 
                 Title = $"{FeinesSearch.Count} feines";

@@ -71,7 +71,7 @@
                          />
 
                   <Button Text="Guardar" Grid.Row="7" Grid.Column="1"
-                          Command="{Binding SaveTareaCommand}"/>
+                          Clicked="Guardar_Clicked" />
                   <Button Text="Cancelar" Grid.Row="8" Grid.Column="1"
                           Clicked="Cancelar_Clicked"/>
 
