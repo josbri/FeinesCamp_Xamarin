@@ -25,5 +25,9 @@ namespace FeinesCamp.View
             ((ListView)sender).SelectedItem = null;
         }
 
+        async void Nova_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushAsync(new TareaDetailsPage());
+        }
     }
 }

@@ -56,7 +56,8 @@ namespace FeinesCamp.ViewModel
 
                     Title = $"{Feines.Count} feines";
 
-                    await App.LocalDatabase.SaveUserAsync(getUser);
+                    //Save to persistence
+                    LocalDataService.SaveUserAsync(getUser);
                 }
                 
             }
@@ -91,6 +92,8 @@ namespace FeinesCamp.ViewModel
             }
 
         }
+
+
 
         
     }

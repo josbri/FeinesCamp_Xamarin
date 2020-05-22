@@ -14,7 +14,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Refresh" Command="{Binding GetUserCommand}" />
+        <ToolbarItem Name="Nova" Clicked="Nova_Clicked" />
     </ContentPage.ToolbarItems>
 
     <Grid RowSpacing="0" ColumnSpacing="5">

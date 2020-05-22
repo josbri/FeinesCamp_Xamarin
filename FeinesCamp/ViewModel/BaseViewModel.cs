@@ -10,6 +10,7 @@ namespace FeinesCamp.ViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public IDataService DataService { get; }
+        public ILocalDataService LocalDataService { get; }
 
         bool isBusy;
         string title;
@@ -18,6 +19,7 @@ namespace FeinesCamp.ViewModel
         {
             //From IOC container in Xamarin Forms.
             DataService = DependencyService.Get<IDataService>();
+            LocalDataService = DependencyService.Get<ILocalDataService>();
         }
 
         //Gets the caller name automatically.

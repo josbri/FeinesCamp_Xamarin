@@ -13,12 +13,11 @@ namespace FeinesCamp.View
             InitializeComponent();
         }
 
-        public TareaDetailsPage(Tarea tarea) : this()
+        public TareaDetailsPage(Tarea tarea)
         {
             InitializeComponent();
 
             ((TareaDetailsViewModel)BindingContext).Tarea = tarea;
-
         }
     }
 }

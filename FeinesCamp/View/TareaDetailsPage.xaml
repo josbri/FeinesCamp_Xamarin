@@ -29,11 +29,25 @@
                     <ColumnDefinition Width="30" />
                 </Grid.ColumnDefinitions>
 
-                  <Picker Title="Client" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Clients}" />
+                <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           Grid.Row="4"
+                            Grid.Column="1"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
 
-                  <Picker Title="Camp" Grid.Row="1" Grid.Column="1"  ItemsSource="{Binding Camps}" />
 
-                  <Picker Title="Feina" Grid.Row="2" Grid.Column="1"  ItemsSource="{Binding Feines}" />
+                  <Picker Title="Client" Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Clients}"
+                          ItemDisplayBinding="{Binding Name}"
+                          SelectedItem="{Binding SelectedClient, Mode=TwoWay}"/>
+
+                  <Picker Title="Camp" Grid.Row="1" Grid.Column="1"  ItemsSource="{Binding SelectedClient.Land}"
+                          ItemDisplayBinding="{Binding Name}"/>
+
+                  <Picker Title="Feina" Grid.Row="2" Grid.Column="1"  ItemsSource="{Binding TipoTareas}"
+                          ItemDisplayBinding="{Binding Name}"/>
 
                   <Label Text="Acabada" Grid.Row="3" Grid.Column="1"/>
                   <Switch  IsToggled="False" Grid.Row="3" Grid.Column="1"/>

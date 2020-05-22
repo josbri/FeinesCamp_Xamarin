@@ -29,8 +29,6 @@ namespace FeinesCamp.Services
             var json = await Client.GetStringAsync(connectionString);
 
             var user = User.FromJson(json);
-
-
             return user;
             
         }

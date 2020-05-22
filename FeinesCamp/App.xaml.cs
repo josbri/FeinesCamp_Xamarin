@@ -8,7 +8,7 @@ namespace FeinesCamp
 {
     public partial class App : Application
     {
-        static FCLocalDatabase localDatabase;
+        /*static FCLocalDatabase localDatabase;
 
         public static FCLocalDatabase LocalDatabase
         {
@@ -20,7 +20,7 @@ namespace FeinesCamp
                 }
                 return localDatabase;
             }
-        }
+        }*/
         public App()
         {
             InitializeComponent();
