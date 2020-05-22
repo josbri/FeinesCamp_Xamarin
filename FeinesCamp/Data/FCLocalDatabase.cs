@@ -57,5 +57,10 @@ namespace FeinesCamp.Data
             return Database.Table<ClientGetDTO>().ToListAsync();
         }
 
+        public Task<List<TipoTarea>> GetTipoTareas()
+        {
+            return Database.Table<TipoTarea>().ToListAsync();
+        }
+
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FeinesCamp.Data;
 using FeinesCamp.Model;
 using FeinesCamp.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 //Dependency: IOC Container built in xamarin.forms
@@ -28,6 +29,7 @@ namespace FeinesCamp.Services
             var json = await Client.GetStringAsync(connectionString);
 
             var user = User.FromJson(json);
+
 
             return user;
             

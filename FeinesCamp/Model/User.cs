@@ -18,7 +18,7 @@ namespace FeinesCamp.Model
 
         public List<Tarea> Tasks { get; set; }
 
-
+        public List<TipoTarea> TipoTareas { get; set; }
 
         public User()
         {
