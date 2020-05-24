@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using FeinesCamp.Model;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace FeinesCamp.View
 {
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage : ContentPage
     {
         public MainPage()
         {
@@ -19,7 +20,8 @@ namespace FeinesCamp.View
             if (tarea == null)
                 return;
 
-            await Navigation.PushAsync(new TareaDetailsPage(tarea));
+            //await Navigation.PushAsync(new TareaDetailsPage(tarea));
+            await PopupNavigation.Instance.PushAsync(new AcabarFeinaPopup(tarea));
 
             //Deselect item:
             ((ListView)sender).SelectedItem = null;

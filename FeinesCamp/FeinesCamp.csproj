@@ -17,6 +17,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -24,6 +25,9 @@
     <Folder Include="Services\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="View\MasterDetailPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="View\MainPage.xaml.cs">

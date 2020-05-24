@@ -19,6 +19,9 @@ namespace FeinesCamp.Droid
 
             base.OnCreate(savedInstanceState);
 
+            //RG Poput initialization:
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

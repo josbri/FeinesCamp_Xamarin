@@ -25,8 +25,9 @@ namespace FeinesCamp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            //MainPage = new NavigationPage(new MainPage());
 
+            MainPage = new FeinesCampMasterDetailPage();
         }
 
         protected override void OnStart()
