@@ -47,17 +47,24 @@ namespace FeinesCamp.ViewModel
             {
                 IsBusy = true;
                 User getUser = await DataService.GetUserAsync("5e93600fd89dee0bdd199f47");
-                //From mvvmhelpers:
+
+
                 if (getUser != null)
                 {
                     User = getUser;
+                    //From mvvmhelpers:
                     Feines.ReplaceRange(getUser.Tasks);
                     FeinesSearch.ReplaceRange(getUser.Tasks);
 
                     Title = $"{Feines.Count} feines";
 
-                    //Save to persistence
-                    LocalDataService.SaveUserAsync(getUser);
+                    if (getUser != null)
+                    {
+                        //Save to persistence
+                        LocalDataService.SaveUserAsync(getUser);
+                    }
+                   
+
                 }
                 
             }

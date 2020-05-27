@@ -20,9 +20,9 @@ namespace FeinesCamp.Model
 
         public string CommentPre { get; set; }
         public string CommentPro { get; set; }
-
         public bool Completed { get; set; }
 
+        public string Material { get; set; }
         public bool Facturada { get; set; }
         public string Image { get; set; }
 

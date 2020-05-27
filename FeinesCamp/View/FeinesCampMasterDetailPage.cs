@@ -36,7 +36,9 @@ namespace FeinesCamp.View
                         page = new MainPage();
                         break;
                     //case PageType.Fetes: page = new SpeakersPage(); break;
-                    //case PageType.Clients: page = new ActivitiesPage(); break;
+                    case PageType.Clients:
+                        page = new ClientsListView();
+                        break;
                     //case PageType.Preferences: page = new RoomsPage(); break;
                     default:
                         page = new MainPage();

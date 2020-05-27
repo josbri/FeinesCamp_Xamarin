@@ -10,5 +10,7 @@ namespace FeinesCamp.Services
         Task<User> GetUserAsync(string jwtId);
 
         Task SaveTareaAsync(TareaPostDTO tarea);
+
+        Task UpdateTareaAsync(Tarea tarea);
     }
 }

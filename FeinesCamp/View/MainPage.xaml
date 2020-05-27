@@ -80,8 +80,8 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <ActivityIndicator IsVisible="{Binding IsBusy}"
-                           IsRunning="{Binding IsBusy}"
+        <ActivityIndicator IsVisible="{Binding IsBusy, Mode=OneWay}"
+                           IsRunning="{Binding IsBusy, Mode=OneWay}"
                            Grid.Row="2"
                            HorizontalOptions="FillAndExpand"
                            VerticalOptions="CenterAndExpand"

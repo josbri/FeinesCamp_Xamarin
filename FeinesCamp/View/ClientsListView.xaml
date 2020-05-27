@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:FeinesCamp.ViewModel"
+             x:Class="FeinesCamp.View.ClientsListView"
+             Title="{Binding Title}">
+
+        <ContentPage.BindingContext>
+            <viewmodel:ClientsListViewModel />
+        </ContentPage.BindingContext>
+
+
+        <Grid RowSpacing="0" ColumnSpacing="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"  />
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="Auto"  />
+
+        </Grid.RowDefinitions>
+
+
+        <SearchBar x:Name="SearchBar"
+        Placeholder="Buscar..."
+        Grid.ColumnSpan="2"
+        FontSize="Medium"
+        Grid.Row="1"
+        IsEnabled="{Binding IsNotBusy}"
+        SearchCommand="{Binding SearchClientsCommand}"
+        SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}"
+        />
+
+        <ListView ItemsSource="{Binding ClientsSearch}"
+                  Margin="20"
+                  Grid.Row="2"
+                  CachingStrategy="RecycleElement"
+                  HasUnevenRows="True"
+                  Grid.ColumnSpan="2"
+
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding GetClientsCommand}"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                  >
+
+            <ListView.ItemTemplate
+                >
+                <DataTemplate>
+                    <ViewCell Height="50"
+                              >
+                            <StackLayout 
+                                         VerticalOptions="Center">
+                                <Label Text="{Binding Name}" />
+                            </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy, Mode=OneWay}"
+                           IsRunning="{Binding IsBusy, Mode=OneWay}"
+                           Grid.Row="2"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
+    </Grid>
+</ContentPage>

@@ -24,7 +24,26 @@ namespace FeinesCamp.Services
         HttpClient Client => httpClient ?? (httpClient = new HttpClient());
 
 
+        private TareaPostDTO TareaToPostDTO (Tarea tarea)
+        {
+            TareaPostDTO tareaPostDTO = new TareaPostDTO
+            {
+                ClientName= tarea.ClientName,
+                CommentPost = tarea.CommentPro,
+                CommentPre = tarea.CommentPre,
+                Completed = tarea.Completed,
+                Created = tarea.Created,
+                Finished = tarea.Finished,
+                Image = tarea.Image,
+                LandID = tarea.LandID,
+                Name = tarea.Name,
+                Time = tarea.Time,
+                UserID = tarea.UserID
 
+            };
+
+            return tareaPostDTO;
+        }
         public async Task<User> GetUserAsync(string jwtId)
         {
             var connectionString = $"{Address}/Users/jwt/{jwtId}";
@@ -42,8 +61,21 @@ namespace FeinesCamp.Services
             var tareaJson = JsonConvert.SerializeObject(tarea);
 
             var data = new StringContent(tareaJson, Encoding.UTF8, "application/json");
+
             await Client.PostAsync(connectionString, data);
 
         }
+
+        public async Task UpdateTareaAsync (Tarea tarea)
+        {
+            var connectionString = $"{Address}/Tasks";
+
+            var tareaJson = JsonConvert.SerializeObject(tarea);
+
+            var data = new StringContent(tareaJson, Encoding.UTF8, "application/json");
+
+            await Client.PutAsync(connectionString, data);
+        }
+
     }
 }
