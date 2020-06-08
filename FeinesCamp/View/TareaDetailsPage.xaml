@@ -1,13 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:FeinesCamp.ViewModel"
              x:Class="FeinesCamp.View.TareaDetailsPage"
              Title="{Binding Title}">
-
-    <ContentPage.BindingContext>
-        <viewmodel:TareaDetailsViewModel />
-    </ContentPage.BindingContext>
 
     <ScrollView>
         <StackLayout>
@@ -55,18 +50,24 @@
                   <Label Text="Acabada" Grid.Row="3" Grid.Column="1" />
 
                   <Switch  IsToggled="False" Grid.Row="3" Grid.Column="1"
-                           BindingContext="{Binding IsFinished}"/>
+                           BindingContext="{Binding IsFinished, Mode=TwoWay}"/>
 
                   <Editor Placeholder="Material" Grid.Row="4" Grid.Column="1"
-                          BindingContext="{Binding MaterialText}"/>
+                          BindingContext="{Binding MaterialText}"
+                          IsVisible="{Binding IsFinished}"
+                          />
 
                  <Editor Placeholder="Comentaris" Grid.Row="5"  Grid.Column="1"
                          BindingContext="{Binding CommentText}"
+                          IsVisible="{Binding IsFinished}"
+
                          />
                 
                  <Entry Placeholder="Temps" Grid.Row="6"  Grid.Column="1"
                          BindingContext="{Binding Temps, Mode=TwoWay}"
                             Keyboard="Numeric"
+                          IsVisible="{Binding IsFinished}"
+
                         
                          />
 

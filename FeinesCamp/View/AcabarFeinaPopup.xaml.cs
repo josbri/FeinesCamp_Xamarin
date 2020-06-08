@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FeinesCamp.Model;
+using FeinesCamp.Utility;
 using FeinesCamp.ViewModel;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
@@ -12,12 +13,11 @@ namespace FeinesCamp.View
         public AcabarFeinaPopup()
         {
             InitializeComponent();
-
+            BindingContext = ViewModelLocator.AcabarFeinaPopupViewModel;
         }
         public AcabarFeinaPopup(Tarea tarea) : this()
         {
-
-            ((AcabarFeinaPopupViewModel)BindingContext).Tarea = tarea;
+            //((AcabarFeinaPopupViewModel)BindingContext).Tarea = tarea;
 
         }
 
@@ -25,5 +25,6 @@ namespace FeinesCamp.View
         {
              PopupNavigation.RemovePageAsync(this);
         }
+
     }
 }

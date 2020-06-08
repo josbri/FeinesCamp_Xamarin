@@ -71,7 +71,7 @@ namespace FeinesCamp.ViewModel
 
             try
             {
-                var searchList = await Clients.Where((f) => f.Name.ToLower().Contains(search.ToLower()));
+                var searchList = Clients.Where((f) => f.Name.ToLower().Contains(search.ToLower()));
                 ClientsSearch.ReplaceRange(searchList);
 
                 Title = $"{ClientsSearch.Count} clients";

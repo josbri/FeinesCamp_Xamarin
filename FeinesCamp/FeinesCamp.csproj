@@ -25,6 +25,7 @@
     <Folder Include="Services\" />
     <Folder Include="ViewModel\" />
     <Folder Include="Data\" />
+    <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="View\MasterDetailPage.xaml.cs" />

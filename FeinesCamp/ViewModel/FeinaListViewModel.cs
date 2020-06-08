@@ -64,7 +64,6 @@ namespace FeinesCamp.ViewModel
                         LocalDataService.SaveUserAsync(getUser);
                     }
                    
-
                 }
                 
             }

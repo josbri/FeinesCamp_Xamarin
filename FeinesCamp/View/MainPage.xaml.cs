@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FeinesCamp.Model;
+using FeinesCamp.Utility;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
@@ -11,6 +12,8 @@ namespace FeinesCamp.View
         public MainPage()
         {
             InitializeComponent();
+
+            BindingContext = ViewModelLocator.FeinaListViewModel;
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

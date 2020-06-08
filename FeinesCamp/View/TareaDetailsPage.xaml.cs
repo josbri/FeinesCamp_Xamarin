@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FeinesCamp.Model;
+using FeinesCamp.Utility;
 using FeinesCamp.ViewModel;
 using Xamarin.Forms;
 
@@ -11,12 +12,8 @@ namespace FeinesCamp.View
         public TareaDetailsPage()
         {
             InitializeComponent();
-        }
-
-        public TareaDetailsPage(Tarea tarea)
-        {
-
-            ((TareaDetailsViewModel)BindingContext).Tarea = tarea;
+            //BindingContext = ViewModelLocator.TareaDetailsViewModel;
+            BindingContext = new TareaDetailsViewModel();
         }
 
         async void Cancelar_Clicked(System.Object sender, System.EventArgs e)

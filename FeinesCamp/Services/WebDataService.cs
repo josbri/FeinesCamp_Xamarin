@@ -68,7 +68,7 @@ namespace FeinesCamp.Services
 
         public async Task UpdateTareaAsync (Tarea tarea)
         {
-            var connectionString = $"{Address}/Tasks";
+            var connectionString = $"{Address}/Tasks/{tarea.ID}";
 
             var tareaJson = JsonConvert.SerializeObject(tarea);
 

@@ -11,7 +11,6 @@ namespace FeinesCamp.ViewModel
     public class TareaDetailsViewModel : BaseViewModel
     {
         Tarea _tarea;
-        string _title;
         private ObservableRangeCollection<ClientGetDTO> _clients;
         public ObservableRangeCollection<ClientGetDTO> Clients {
             get => _clients;
@@ -162,18 +161,9 @@ namespace FeinesCamp.ViewModel
             GetInitialDataCommand = new Command(async () => await GetInitialData());
             SaveTareaCommand = new Command(async () => await SaveTareaAsync());
 
-            GetInitialDataCommand.Execute("");
+            GetInitialDataCommand.Execute(null);
 
          }
-
-        public TareaDetailsViewModel(Tarea tarea) : this()
-        {
-            Tarea = tarea;
-
-            Title = $"{tarea.Name} {tarea.Land.Name} {tarea.ClientName}";
-        }
-
-
 
         async Task GetInitialData()
         {
@@ -202,14 +192,22 @@ namespace FeinesCamp.ViewModel
 
             Clients = new ObservableRangeCollection<ClientGetDTO>();
             var clients = LocalDataService.GetClients();
-            Clients.ReplaceRange(clients);
+            if (clients != null)
+            {
+                Clients.ReplaceRange(clients);
+
+            }
         }
 
         void GetInitialTipoTareas()
         {
             TipoTareas = new ObservableRangeCollection<TipoTarea>();
             var tipoTareas = LocalDataService.GetTipoTareas();
-            TipoTareas.ReplaceRange(tipoTareas);
+            if (tipoTareas != null)
+            {
+                TipoTareas.ReplaceRange(tipoTareas);
+
+            }
         }
 
 
